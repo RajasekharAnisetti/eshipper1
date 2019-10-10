@@ -1,0 +1,107 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="apPayable">
+            <h2><span>Ap Payable</span> {{apPayable.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Invoice Date</span></dt>
+                <dd>
+                    <span>{{apPayable.invoiceDate}}</span>
+                </dd>
+                <dt><span>Invoice Amount</span></dt>
+                <dd>
+                    <span>{{apPayable.invoiceAmount}}</span>
+                </dd>
+                <dt><span>Invoice No</span></dt>
+                <dd>
+                    <span>{{apPayable.invoiceNo}}</span>
+                </dd>
+                <dt><span>Comment</span></dt>
+                <dd>
+                    <span>{{apPayable.comment}}</span>
+                </dd>
+                <dt><span>Is Credit</span></dt>
+                <dd>
+                    <span>{{apPayable.isCredit}}</span>
+                </dd>
+                <dt><span>Is Credit Note</span></dt>
+                <dd>
+                    <span>{{apPayable.isCreditNote}}</span>
+                </dd>
+                <dt><span>Is Dispute</span></dt>
+                <dd>
+                    <span>{{apPayable.isDispute}}</span>
+                </dd>
+                <dt><span>Doc Path</span></dt>
+                <dd>
+                    <span>{{apPayable.docPath}}</span>
+                </dd>
+                <dt><span>Sub Total</span></dt>
+                <dd>
+                    <span>{{apPayable.subTotal}}</span>
+                </dd>
+                <dt><span>Gst</span></dt>
+                <dd>
+                    <span>{{apPayable.gst}}</span>
+                </dd>
+                <dt><span>Hst</span></dt>
+                <dd>
+                    <span>{{apPayable.hst}}</span>
+                </dd>
+                <dt><span>Pst</span></dt>
+                <dd>
+                    <span>{{apPayable.pst}}</span>
+                </dd>
+                <dt><span>Qst</span></dt>
+                <dd>
+                    <span>{{apPayable.qst}}</span>
+                </dd>
+                <dt><span>Total Amount</span></dt>
+                <dd>
+                    <span>{{apPayable.totalAmount}}</span>
+                </dd>
+                <dt><span>Balance Due</span></dt>
+                <dd>
+                    <span>{{apPayable.balanceDue}}</span>
+                </dd>
+                <dt><span>Ap Payee Type</span></dt>
+                <dd>
+                    <div *ngIf="apPayable.apPayeeTypeId">
+                        <a [routerLink]="['/ap-payee-type', apPayable.apPayeeTypeId, 'view']">{{apPayable.apPayeeTypeId}}</a>
+                    </div>
+                </dd>
+                <dt><span>Ap Payee</span></dt>
+                <dd>
+                    <div *ngIf="apPayable.apPayeeId">
+                        <a [routerLink]="['/ap-payee', apPayable.apPayeeId, 'view']">{{apPayable.apPayeeId}}</a>
+                    </div>
+                </dd>
+                <dt><span>Ap Category Type</span></dt>
+                <dd>
+                    <div *ngIf="apPayable.apCategoryTypeId">
+                        <a [routerLink]="['/ap-category-type', apPayable.apCategoryTypeId, 'view']">{{apPayable.apCategoryTypeId}}</a>
+                    </div>
+                </dd>
+                <dt><span>Wo Payment Method</span></dt>
+                <dd>
+                    <div *ngIf="apPayable.woPaymentMethodId">
+                        <a [routerLink]="['/wo-payment-method', apPayable.woPaymentMethodId, 'view']">{{apPayable.woPaymentMethodId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ap-payable', apPayable.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

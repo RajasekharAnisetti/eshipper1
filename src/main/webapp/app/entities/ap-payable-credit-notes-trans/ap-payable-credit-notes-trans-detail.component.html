@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="apPayableCreditNotesTrans">
+            <h2><span>Ap Payable Credit Notes Trans</span> {{apPayableCreditNotesTrans.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Type</span></dt>
+                <dd>
+                    <span>{{apPayableCreditNotesTrans.type}}</span>
+                </dd>
+                <dt><span>Amount</span></dt>
+                <dd>
+                    <span>{{apPayableCreditNotesTrans.amount}}</span>
+                </dd>
+                <dt><span>Ap Payable</span></dt>
+                <dd>
+                    <div *ngIf="apPayableCreditNotesTrans.apPayableId">
+                        <a [routerLink]="['/ap-payable', apPayableCreditNotesTrans.apPayableId, 'view']">{{apPayableCreditNotesTrans.apPayableId}}</a>
+                    </div>
+                </dd>
+                <dt><span>Ap Payee</span></dt>
+                <dd>
+                    <div *ngIf="apPayableCreditNotesTrans.apPayeeId">
+                        <a [routerLink]="['/ap-payee', apPayableCreditNotesTrans.apPayeeId, 'view']">{{apPayableCreditNotesTrans.apPayeeId}}</a>
+                    </div>
+                </dd>
+                <dt><span>Ap Payable</span></dt>
+                <dd>
+                    <div *ngIf="apPayableCreditNotesTrans.apPayableId">
+                        <a [routerLink]="['/ap-payable', apPayableCreditNotesTrans.apPayableId, 'view']">{{apPayableCreditNotesTrans.apPayableId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ap-payable-credit-notes-trans', apPayableCreditNotesTrans.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

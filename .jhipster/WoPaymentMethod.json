@@ -1,0 +1,30 @@
+{
+    "name": "WoPaymentMethod",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "apPayable",
+            "otherEntityRelationshipName": "woPaymentMethod",
+            "relationshipName": "apPayable"
+        }
+    ],
+    "changelogDate": "20191010120245",
+    "entityTableName": "wo_payment_method",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

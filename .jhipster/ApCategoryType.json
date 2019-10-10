@@ -1,0 +1,30 @@
+{
+    "name": "ApCategoryType",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "apPayable",
+            "otherEntityRelationshipName": "apCategoryType",
+            "relationshipName": "apPayable"
+        }
+    ],
+    "changelogDate": "20191010120244",
+    "entityTableName": "ap_category_type",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

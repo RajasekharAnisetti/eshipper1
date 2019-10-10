@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity ApPayable.
+    -->
+    <changeSet id="20191010120240-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="ap_payee_type_id"
+                                 baseTableName="ap_payable"
+                                 constraintName="fk_ap_payable_ap_payee_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ap_payee_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="ap_payee_id"
+                                 baseTableName="ap_payable"
+                                 constraintName="fk_ap_payable_ap_payee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ap_payee"/>
+
+        <addForeignKeyConstraint baseColumnNames="ap_category_type_id"
+                                 baseTableName="ap_payable"
+                                 constraintName="fk_ap_payable_ap_category_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ap_category_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="wo_payment_method_id"
+                                 baseTableName="ap_payable"
+                                 constraintName="fk_ap_payable_wo_payment_method_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="wo_payment_method"/>
+
+    </changeSet>
+</databaseChangeLog>

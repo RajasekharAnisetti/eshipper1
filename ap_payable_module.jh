@@ -1,0 +1,63 @@
+entity ApPayable {
+	invoiceDate LocalDate
+	invoiceAmount Integer max(11)
+	invoiceNo String maxlength(255)
+	comment String maxlength(1000)
+	isCredit Boolean
+	isCreditNote Boolean
+	isDispute Boolean
+	docPath String maxlength(255)
+	subTotal Float
+	gst Float 
+	hst Float 
+	pst Float
+	qst Float
+	totalAmount Float
+	balanceDue Float
+}
+
+entity ApPayableCreditNotesTrans {
+	type String maxlength(255)
+	amount Integer max(11)
+}
+
+entity ApPayeeType {
+	name String maxlength(255)
+}
+
+entity ApPayee {
+	name String maxlength(255)
+}
+
+entity ApCategoryType {
+	name String maxlength(255)
+}
+
+entity WoPaymentMethod {
+	name String maxlength(255)
+}
+
+
+
+
+relationship ManyToOne {
+   ApPayable to ApPayeeType
+   ApPayable to ApPayee
+   ApPayable to ApCategoryType
+   ApPayable to WoPaymentMethod
+   ApPayableCreditNotesTrans to ApPayee
+}
+
+relationship OneToMany {
+   ApPayable to ApPayableCreditNotesTrans
+   ApPayable{creditUsedFrmAPPayable} to ApPayableCreditNotesTrans
+}
+
+
+
+// Set pagination options
+//paginate JobHistory, Employee with infinite-scroll
+//paginate Job with pagination
+dto * with mapstruct
+// Set service options to all except few
+service all with serviceImpl

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity ApPayableCreditNotesTrans.
+    -->
+    <changeSet id="20191010120241-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="ap_payable_id"
+                                 baseTableName="ap_payable_credit_notes_trans"
+                                 constraintName="fk_ap_payable_credit_notes_trans_ap_payable_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ap_payable"/>
+
+        <addForeignKeyConstraint baseColumnNames="ap_payee_id"
+                                 baseTableName="ap_payable_credit_notes_trans"
+                                 constraintName="fk_ap_payable_credit_notes_trans_ap_payee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ap_payee"/>
+
+        <addForeignKeyConstraint baseColumnNames="ap_payable_id"
+                                 baseTableName="ap_payable_credit_notes_trans"
+                                 constraintName="fk_ap_payable_credit_notes_trans_ap_payable_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ap_payable"/>
+
+    </changeSet>
+</databaseChangeLog>

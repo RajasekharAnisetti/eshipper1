@@ -1,0 +1,52 @@
+{
+    "name": "ApPayableCreditNotesTrans",
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "max"
+            ],
+            "fieldValidateRulesMax": 11
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "apPayable",
+            "otherEntityName": "apPayable",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "apPayee",
+            "otherEntityRelationshipName": "apPayableCreditNotesTrans",
+            "relationshipName": "apPayee",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "apPayable",
+            "otherEntityRelationshipName": "apPayableCreditNotesTrans",
+            "relationshipName": "apPayable",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191010120241",
+    "entityTableName": "ap_payable_credit_notes_trans",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

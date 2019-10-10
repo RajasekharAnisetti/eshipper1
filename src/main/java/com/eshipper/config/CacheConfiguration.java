@@ -42,6 +42,19 @@ public class CacheConfiguration {
             createCache(cm, com.eshipper.domain.User.class.getName());
             createCache(cm, com.eshipper.domain.Authority.class.getName());
             createCache(cm, com.eshipper.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.eshipper.domain.ApPayable.class.getName());
+            createCache(cm, com.eshipper.domain.ApPayable.class.getName() + ".apPayableCreditNotesTrans");
+            createCache(cm, com.eshipper.domain.ApPayable.class.getName() + ".creditUsedFrmAPPayables");
+            createCache(cm, com.eshipper.domain.ApPayableCreditNotesTrans.class.getName());
+            createCache(cm, com.eshipper.domain.ApPayeeType.class.getName());
+            createCache(cm, com.eshipper.domain.ApPayeeType.class.getName() + ".apPayables");
+            createCache(cm, com.eshipper.domain.ApPayee.class.getName());
+            createCache(cm, com.eshipper.domain.ApPayee.class.getName() + ".apPayables");
+            createCache(cm, com.eshipper.domain.ApPayee.class.getName() + ".apPayableCreditNotesTrans");
+            createCache(cm, com.eshipper.domain.ApCategoryType.class.getName());
+            createCache(cm, com.eshipper.domain.ApCategoryType.class.getName() + ".apPayables");
+            createCache(cm, com.eshipper.domain.WoPaymentMethod.class.getName());
+            createCache(cm, com.eshipper.domain.WoPaymentMethod.class.getName() + ".apPayables");
             // jhipster-needle-ehcache-add-entry
         };
     }

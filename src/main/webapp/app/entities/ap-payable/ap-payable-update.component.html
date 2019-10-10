@@ -1,0 +1,159 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-ap-payable-heading">Create or edit a Ap Payable</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_invoiceDate">Invoice Date</label>
+                    <div class="input-group">
+                        <input id="field_invoiceDate" type="text" class="form-control" name="invoiceDate" ngbDatepicker  #invoiceDateDp="ngbDatepicker" formControlName="invoiceDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="invoiceDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_invoiceAmount">Invoice Amount</label>
+                    <input type="number" class="form-control" name="invoiceAmount" id="field_invoiceAmount"
+                           formControlName="invoiceAmount"/>
+                    <div *ngIf="editForm.get('invoiceAmount').invalid && (editForm.get('invoiceAmount').dirty || editForm.get('invoiceAmount').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('invoiceAmount').errors.max">
+                            This field cannot be more than 11.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('invoiceAmount')?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_invoiceNo">Invoice No</label>
+                    <input type="text" class="form-control" name="invoiceNo" id="field_invoiceNo"
+                           formControlName="invoiceNo"/>
+                    <div *ngIf="editForm.get('invoiceNo').invalid && (editForm.get('invoiceNo').dirty || editForm.get('invoiceNo').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('invoiceNo').errors.maxlength">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_comment">Comment</label>
+                    <input type="text" class="form-control" name="comment" id="field_comment"
+                           formControlName="comment"/>
+                    <div *ngIf="editForm.get('comment').invalid && (editForm.get('comment').dirty || editForm.get('comment').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('comment').errors.maxlength">
+                        This field cannot be longer than 1000 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_isCredit">Is Credit</label>
+                    <input type="checkbox" class="form-control" name="isCredit" id="field_isCredit"
+                           formControlName="isCredit"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_isCreditNote">Is Credit Note</label>
+                    <input type="checkbox" class="form-control" name="isCreditNote" id="field_isCreditNote"
+                           formControlName="isCreditNote"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_isDispute">Is Dispute</label>
+                    <input type="checkbox" class="form-control" name="isDispute" id="field_isDispute"
+                           formControlName="isDispute"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_docPath">Doc Path</label>
+                    <input type="text" class="form-control" name="docPath" id="field_docPath"
+                           formControlName="docPath"/>
+                    <div *ngIf="editForm.get('docPath').invalid && (editForm.get('docPath').dirty || editForm.get('docPath').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('docPath').errors.maxlength">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_subTotal">Sub Total</label>
+                    <input type="number" class="form-control" name="subTotal" id="field_subTotal"
+                           formControlName="subTotal"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_gst">Gst</label>
+                    <input type="number" class="form-control" name="gst" id="field_gst"
+                           formControlName="gst"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_hst">Hst</label>
+                    <input type="number" class="form-control" name="hst" id="field_hst"
+                           formControlName="hst"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_pst">Pst</label>
+                    <input type="number" class="form-control" name="pst" id="field_pst"
+                           formControlName="pst"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_qst">Qst</label>
+                    <input type="number" class="form-control" name="qst" id="field_qst"
+                           formControlName="qst"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_totalAmount">Total Amount</label>
+                    <input type="number" class="form-control" name="totalAmount" id="field_totalAmount"
+                           formControlName="totalAmount"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_balanceDue">Balance Due</label>
+                    <input type="number" class="form-control" name="balanceDue" id="field_balanceDue"
+                           formControlName="balanceDue"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_apPayeeType">Ap Payee Type</label>
+                    <select class="form-control" id="field_apPayeeType" name="apPayeeType" formControlName="apPayeeTypeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="apPayeeTypeOption.id" *ngFor="let apPayeeTypeOption of appayeetypes; trackBy: trackApPayeeTypeById">{{apPayeeTypeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_apPayee">Ap Payee</label>
+                    <select class="form-control" id="field_apPayee" name="apPayee" formControlName="apPayeeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="apPayeeOption.id" *ngFor="let apPayeeOption of appayees; trackBy: trackApPayeeById">{{apPayeeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_apCategoryType">Ap Category Type</label>
+                    <select class="form-control" id="field_apCategoryType" name="apCategoryType" formControlName="apCategoryTypeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="apCategoryTypeOption.id" *ngFor="let apCategoryTypeOption of apcategorytypes; trackBy: trackApCategoryTypeById">{{apCategoryTypeOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_woPaymentMethod">Wo Payment Method</label>
+                    <select class="form-control" id="field_woPaymentMethod" name="woPaymentMethod" formControlName="woPaymentMethodId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="woPaymentMethodOption.id" *ngFor="let woPaymentMethodOption of wopaymentmethods; trackBy: trackWoPaymentMethodById">{{woPaymentMethodOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

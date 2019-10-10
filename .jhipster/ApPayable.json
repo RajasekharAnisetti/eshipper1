@@ -1,0 +1,132 @@
+{
+    "name": "ApPayable",
+    "fields": [
+        {
+            "fieldName": "invoiceDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "invoiceAmount",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "max"
+            ],
+            "fieldValidateRulesMax": 11
+        },
+        {
+            "fieldName": "invoiceNo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "comment",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 1000
+        },
+        {
+            "fieldName": "isCredit",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isCreditNote",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isDispute",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "docPath",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        },
+        {
+            "fieldName": "subTotal",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "gst",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "hst",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "pst",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "qst",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "totalAmount",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "balanceDue",
+            "fieldType": "Float"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "apPayableCreditNotesTrans",
+            "otherEntityRelationshipName": "apPayable",
+            "relationshipName": "apPayableCreditNotesTrans"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "apPayableCreditNotesTrans",
+            "otherEntityRelationshipName": "apPayable",
+            "relationshipName": "creditUsedFrmAPPayable"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "apPayeeType",
+            "otherEntityRelationshipName": "apPayable",
+            "relationshipName": "apPayeeType",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "apPayee",
+            "otherEntityRelationshipName": "apPayable",
+            "relationshipName": "apPayee",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "apCategoryType",
+            "otherEntityRelationshipName": "apPayable",
+            "relationshipName": "apCategoryType",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "woPaymentMethod",
+            "otherEntityRelationshipName": "apPayable",
+            "relationshipName": "woPaymentMethod",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191010120240",
+    "entityTableName": "ap_payable",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

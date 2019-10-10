@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span>Ap Payable Credit Notes Trans</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ap-payable-credit-notes-trans" [routerLink]="['/ap-payable-credit-notes-trans/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create a new Ap Payable Credit Notes Trans
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="apPayableCreditNotesTrans?.length === 0">
+        <span>No apPayableCreditNotesTrans found</span>
+    </div>
+    <div class="table-responsive" *ngIf="apPayableCreditNotesTrans?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Type</span></th>
+            <th><span>Amount</span></th>
+            <th><span>Ap Payable</span></th>
+            <th><span>Ap Payee</span></th>
+            <th><span>Ap Payable</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let apPayableCreditNotesTrans of apPayableCreditNotesTrans ;trackBy: trackId">
+                <td><a [routerLink]="['/ap-payable-credit-notes-trans', apPayableCreditNotesTrans.id, 'view' ]">{{apPayableCreditNotesTrans.id}}</a></td>
+                <td>{{apPayableCreditNotesTrans.type}}</td>
+                <td>{{apPayableCreditNotesTrans.amount}}</td>
+                <td>
+                    <div *ngIf="apPayableCreditNotesTrans.apPayableId">
+                        <a [routerLink]="['/ap-payable', apPayableCreditNotesTrans.apPayableId , 'view' ]" >{{apPayableCreditNotesTrans.apPayableId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="apPayableCreditNotesTrans.apPayeeId">
+                        <a [routerLink]="['/ap-payee', apPayableCreditNotesTrans.apPayeeId , 'view' ]" >{{apPayableCreditNotesTrans.apPayeeId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="apPayableCreditNotesTrans.apPayableId">
+                        <a [routerLink]="['/ap-payable', apPayableCreditNotesTrans.apPayableId , 'view' ]" >{{apPayableCreditNotesTrans.apPayableId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/ap-payable-credit-notes-trans', apPayableCreditNotesTrans.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/ap-payable-credit-notes-trans', apPayableCreditNotesTrans.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/ap-payable-credit-notes-trans', { outlets: { popup: apPayableCreditNotesTrans.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+id;invoice_date;invoice_amount;invoice_no;comment;is_credit;is_credit_note;is_dispute;doc_path;sub_total;gst;hst;pst;qst;total_amount;balance_due
+1;2019-10-10;9;Fish multi-byte Savings Account;Computer Practical Fresh Pants;true;false;true;Movies Producer;83244;93855;21233;77;18182;99221;18340
+2;2019-10-09;3;Albania web-readiness;Namibia;false;false;false;Coordinator;23277;45606;9060;78517;61838;19967;38246
+3;2019-10-09;11;Canyon HDD;Table Small Frozen Sausages Planner;true;false;false;Intelligent;68423;24102;44015;68326;12203;60999;49517
+4;2019-10-09;0;Regional;Tuna;true;false;false;sky blue Georgia;3131;96958;84228;77513;44975;93949;39515
+5;2019-10-09;11;capacitor archive;sky blue Tasty Plastic Pizza;false;true;false;generating compelling;28093;60703;54269;27599;14092;29627;80219
+6;2019-10-10;0;Administrator;reinvent 24 hour Jewelery;false;true;true;1080p Checking Account Identity;65107;11586;91495;86310;85003;62329;44945
+7;2019-10-10;1;envisioneer;moratorium pixel withdrawal;true;true;false;Frozen bus;76078;72172;56127;23598;77096;25606;49379
+8;2019-10-10;6;partnerships Grocery Intelligent;Dynamic;false;false;true;European Unit of Account 9(E.U.A.-9) Concrete;60441;41038;53984;75555;20306;22879;94285
+9;2019-10-10;7;Chilean Peso Unidades de fomento;Web virtual deposit;true;false;true;maroon;89255;88328;53934;32434;80744;12208;89609
+10;2019-10-10;3;Gorgeous Profit-focused synergies;cutting-edge ability Hat;true;false;false;Bahamian Dollar;26941;33761;24412;94290;16829;32320;21876

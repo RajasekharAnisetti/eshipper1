@@ -1,0 +1,30 @@
+{
+    "name": "ApPayeeType",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 255
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "apPayable",
+            "otherEntityRelationshipName": "apPayeeType",
+            "relationshipName": "apPayable"
+        }
+    ],
+    "changelogDate": "20191010120242",
+    "entityTableName": "ap_payee_type",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
